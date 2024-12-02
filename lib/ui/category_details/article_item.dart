@@ -18,20 +18,20 @@ class ArticleItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CachedNetworkImage(
-          imageUrl: articleModel.image,
-          fit: BoxFit.cover,
-          height: 232.h,
-          width: double.infinity,
-          placeholder: (context, url) => const Center(
-            child: CircularProgressIndicator(),
-          ),
-          errorWidget: (context, url, error) =>  Icon(
-            Icons.error,
-            size: 12.sp,
-            color: AppColors.lightPrimary,
-          ),
-        ),
+        // CachedNetworkImage(
+        //   imageUrl: articleModel.image,
+        //   fit: BoxFit.cover,
+        //   height: 232.h,
+        //   width: double.infinity,
+        //   placeholder: (context, url) => const Center(
+        //     child: CircularProgressIndicator(),
+        //   ),
+        //   errorWidget: (context, url, error) =>  Icon(
+        //     Icons.error,
+        //     size: 40.sp,
+        //     color: AppColors.lightPrimary,
+        //   ),
+        // ),
         SizedBox(
           height: 10.h,
         ),
