@@ -1,8 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/model/article_model.dart';
-import 'package:news_app/style/app_colors.dart';
+// import 'package:news_app/style/app_colors.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class ArticleItem extends StatelessWidget {
@@ -32,6 +32,12 @@ class ArticleItem extends StatelessWidget {
         //     color: AppColors.lightPrimary,
         //   ),
         // ),
+        Image.network(
+          articleModel.image,
+          fit: BoxFit.cover,
+          height: 232.h,
+          width: double.infinity,
+        ),
         SizedBox(
           height: 10.h,
         ),
