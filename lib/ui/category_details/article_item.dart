@@ -1,12 +1,13 @@
 // import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/model/article_model.dart';
-// import 'package:news_app/style/app_colors.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
+import '../../model/articles_response/Article.dart';
+import '../../style/app_colors.dart';
+
 class ArticleItem extends StatelessWidget {
-  final ArticleModel articleModel;
+  final Article articleModel;
 
   const ArticleItem({
     super.key,
@@ -19,7 +20,7 @@ class ArticleItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // CachedNetworkImage(
-        //   imageUrl: articleModel.image,
+        //   imageUrl: articleModel.urlToImage,
         //   fit: BoxFit.cover,
         //   height: 232.h,
         //   width: double.infinity,
@@ -33,7 +34,7 @@ class ArticleItem extends StatelessWidget {
         //   ),
         // ),
         Image.network(
-          articleModel.image,
+          articleModel.urlToImage ?? '',
           fit: BoxFit.cover,
           height: 232.h,
           width: double.infinity,
@@ -42,11 +43,11 @@ class ArticleItem extends StatelessWidget {
           height: 10.h,
         ),
         Text(
-          articleModel.source,
+          articleModel.source?.name ?? '',
           style: Theme.of(context).textTheme.titleSmall,
         ),
         Text(
-          articleModel.title,
+          articleModel.title ?? '',
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.w500,
                 fontSize: 16.sp,
@@ -55,7 +56,9 @@ class ArticleItem extends StatelessWidget {
         Align(
           alignment: Alignment.centerRight,
           child: Text(
-            timeago.format(articleModel.date),
+            timeago.format(
+              DateTime.parse(articleModel.publishedAt ?? ''),
+            ),
           ),
         ),
       ],
